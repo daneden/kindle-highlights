@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+:root {
+  --darkgray: #111;
+  --lightgray: #eee;
+  --wash-color: var(--lightgray);
+  --text-color: var(--darkgray);
+  --site-color: royalblue;
+  --sp: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wash-color: var(--darkgray);
+    --text-color: var(--lightgray);
+  }
+}
+
+html {
+  font: 100%/1.5 "IBM Plex Serif", serif;
+  color: var(--text-color);
+  background-color: var(--wash-color);
+  padding: var(--sp);
+}
+
+main {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--site-color);
+}
+
+header {
+  margin-bottom: 3rem;
+}
+
+p,
+details,
+ul {
+  margin-bottom: var(--sp);
+}
+
+ul {
+  padding-left: var(--sp);
+}
+
+.sans {
+  font-family: "IBM Plex Sans", sans-serif;
+}

@@ -1,6 +1,6 @@
 import Airtable, { FieldSet, Table } from "airtable"
 
-interface Row extends FieldSet {
+export interface Highlight extends FieldSet {
   title: string
   author: string
   date: string
@@ -12,7 +12,7 @@ interface Row extends FieldSet {
 const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME } = process.env
 
 const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE_ID)
-const table = base(AIRTABLE_TABLE_NAME) as Table<Row>
+const table = base(AIRTABLE_TABLE_NAME) as Table<Highlight>
 export default async () => {
   const query = table.select({
     maxRecords: 1000,
