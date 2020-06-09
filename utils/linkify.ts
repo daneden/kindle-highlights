@@ -1,3 +1,8 @@
 export default function linkify(s: string): string {
-  return s.replace(/ /g, "-").toLowerCase()
+  return encodeURI(
+    s
+      .replace(/ /g, "-")
+      .replace(/[:&;—?!]/, "")
+      .toLowerCase()
+  )
 }

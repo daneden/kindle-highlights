@@ -1,3 +1,4 @@
+import Link from "next/link"
 import linkify from "../utils/linkify"
 import Highlight from "./Highlight"
 export default function Book({ title, author, highlights }) {
@@ -33,7 +34,11 @@ export default function Book({ title, author, highlights }) {
       <section id={linkify(title)}>
         <div>
           <header className="book-header">
-            <h2>{title}</h2>
+            <h2>
+              <Link href={`/book/${linkify(title)}`}>
+                <a>{title}</a>
+              </Link>
+            </h2>
             <p>
               {author}
               <br />

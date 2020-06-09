@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Book from "../components/Book"
 import fetchHighlights, {
+  groupHighlights,
   Highlight as THighlight,
 } from "../lib/fetchHighlights"
 import linkify from "../utils/linkify"
@@ -12,32 +13,6 @@ interface Book {
 }
 
 export default function HomePage({ highlights }: { highlights: [THighlight] }) {
-  const groupedHighlights = highlights
-    .reduce<[Book?]>((accumulator, highlight) => {
-      const titleIndex = accumulator.findIndex(
-        (title) => title.title == highlight.title
-      )
-      if (titleIndex === -1) {
-        accumulator.push({
-          title: highlight.title,
-          author: highlight.author,
-          highlights: [highlight],
-        })
-      } else {
-        accumulator[titleIndex].highlights.push(highlight)
-      }
-
-      return accumulator
-    }, [])
-    .map((title) => {
-      const sortedHighlights = title.highlights.sort(
-        (a, b) => a.locStart - b.locStart
-      )
-      title.highlights = sortedHighlights
-
-      return title
-    })
-
   return (
     <>
       <Head>
@@ -65,14 +40,14 @@ export default function HomePage({ highlights }: { highlights: [THighlight] }) {
           </details>
           <h2>Table of Contents</h2>
           <ul>
-            {groupedHighlights.map(({ title, author }) => (
+            {highlights.map(({ title, author }) => (
               <li key={title}>
                 <a href={`#${linkify(title)}`}>{title}</a> by {author}
               </li>
             ))}
           </ul>
         </header>
-        {groupedHighlights.map(({ title, author, highlights }) => (
+        {highlights.map(({ title, author, highlights }) => (
           <Book
             key={title}
             title={title}
@@ -87,10 +62,11 @@ export default function HomePage({ highlights }: { highlights: [THighlight] }) {
 
 export async function getStaticProps() {
   const highlights = await fetchHighlights()
+  const groupedHighlights = groupHighlights(highlights)
 
   return {
     props: {
-      highlights,
+      highlights: groupedHighlights,
       unstable_revalidate: 1,
     },
   }
