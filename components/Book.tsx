@@ -2,6 +2,8 @@ import Link from "next/link"
 import linkify from "../utils/linkify"
 import Highlight from "./Highlight"
 export default function Book({ title, author, highlights }) {
+  const slug = linkify(title)
+
   return (
     <>
       <style jsx>{`
@@ -12,8 +14,9 @@ export default function Book({ title, author, highlights }) {
 
         section {
           display: grid;
+          grid-gap: var(--sp);
           grid-template-columns: minmax(10rem, 1.5fr) 3fr;
-          padding-top: var(--sp);
+          padding: var(--sp) 0;
         }
 
         header {
@@ -39,11 +42,11 @@ export default function Book({ title, author, highlights }) {
           }
         }
       `}</style>
-      <section id={linkify(title)}>
+      <section id={slug}>
         <div>
           <header>
             <h2>
-              <Link href={`/book/${linkify(title)}`}>
+              <Link href="/book/[title]" as={`/book/${slug}`}>
                 <a>{title}</a>
               </Link>
             </h2>

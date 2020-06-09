@@ -10,10 +10,6 @@ export default function Highlight({
   return (
     <>
       <style jsx>{`
-        li {
-          margin-bottom: 2rem;
-        }
-
         blockquote {
           margin: 0;
           font-size: clamp(1em, 2vw, 1.25em);

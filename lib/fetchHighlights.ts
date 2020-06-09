@@ -31,21 +31,21 @@ export default async () => {
 
 export function groupHighlights(highlights: Highlight[]) {
   const groupedHighlights = highlights
-    .reduce<Book[]>((accumulator, highlight) => {
-      const titleIndex = accumulator.findIndex(
-        (title) => title.title == highlight.title
+    .reduce<Book[]>((books, highlight) => {
+      const titleIndex = books.findIndex(
+        ({ title }) => title == highlight.title
       )
       if (titleIndex === -1) {
-        accumulator.push({
+        books.push({
           title: highlight.title,
           author: highlight.author,
           highlights: [highlight],
         })
       } else {
-        accumulator[titleIndex].highlights.push(highlight)
+        books[titleIndex].highlights.push(highlight)
       }
 
-      return accumulator
+      return books
     }, [])
     .map((title) => {
       const sortedHighlights = title.highlights.sort(
