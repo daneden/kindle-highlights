@@ -16,24 +16,32 @@ export default function Book({ title, author, highlights }) {
           padding-top: var(--sp);
         }
 
-        @media (max-width: 800px) {
-          section {
-            grid-template-columns: 1fr;
-          }
-        }
-
         header {
           position: sticky;
           top: 1rem;
           background-color: var(--wash-color);
           padding: var(--sp);
           margin: calc(-1 * var(--sp));
-          margin-bottom: var(--sp);
+          margin-bottom: calc(var(--sp) * 2);
+        }
+
+        p {
+          margin: 0;
+        }
+
+        @media (max-width: 800px) {
+          section {
+            grid-template-columns: 1fr;
+          }
+
+          header {
+            margin-bottom: 0;
+          }
         }
       `}</style>
       <section id={linkify(title)}>
         <div>
-          <header className="book-header">
+          <header>
             <h2>
               <Link href={`/book/${linkify(title)}`}>
                 <a>{title}</a>

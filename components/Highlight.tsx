@@ -16,7 +16,7 @@ export default function Highlight({
 
         blockquote {
           margin: 0;
-          font-size: 1.25em;
+          font-size: clamp(1em, 2vw, 1.25em);
         }
 
         mark {
