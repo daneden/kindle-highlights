@@ -19,7 +19,10 @@ export default function BookPage({
   return (
     <>
       <Head>
-        <title>Highlights for “{title}” | Daniel Eden, Designer</title>
+        <title>
+          Highlights for {router.isFallback ? "book" : `“${title}”`} | Daniel
+          Eden, Designer
+        </title>
       </Head>
       <main>
         <header>
