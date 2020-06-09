@@ -16,13 +16,25 @@ export default function BookPage({
 }) {
   const router = useRouter()
 
+  if (router.isFallback) {
+    return (
+      <main>
+        <header>
+          <nav>
+            <Link href="/">
+              <a>⭠ Back to all highlights</a>
+            </Link>
+          </nav>
+        </header>
+        <BookPlaceholder />
+      </main>
+    )
+  }
+
   return (
     <>
       <Head>
-        <title>
-          Highlights for {router.isFallback ? "book" : `“${title}”`} | Daniel
-          Eden, Designer
-        </title>
+        <title>Highlights for “{title}” | Daniel Eden, Designer</title>
       </Head>
       <main>
         <header>
@@ -32,16 +44,12 @@ export default function BookPage({
             </Link>
           </nav>
         </header>
-        {router.isFallback ? (
-          <BookPlaceholder />
-        ) : (
-          <Book
-            key={title}
-            title={title}
-            author={author}
-            highlights={highlights}
-          />
-        )}
+        <Book
+          key={title}
+          title={title}
+          author={author}
+          highlights={highlights}
+        />
       </main>
     </>
   )
