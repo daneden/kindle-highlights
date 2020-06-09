@@ -1,17 +1,21 @@
+import { useRouter } from "next/dist/client/router"
 import Head from "next/head"
 import Link from "next/link"
 import Book from "../../components/Book"
+import BookPlaceholder from "../../components/BookPlaceholder"
 import fetchHighlights, {
   Book as TBook,
   groupHighlights,
 } from "../../lib/fetchHighlights"
 import linkify from "../../utils/linkify"
 
-export default function HomePage({
+export default function BookPage({
   book: { title, author, highlights },
 }: {
   book: TBook
 }) {
+  const router = useRouter()
+
   return (
     <>
       <Head>
@@ -25,12 +29,16 @@ export default function HomePage({
             </Link>
           </nav>
         </header>
-        <Book
-          key={title}
-          title={title}
-          author={author}
-          highlights={highlights}
-        />
+        {router.isFallback ? (
+          <BookPlaceholder />
+        ) : (
+          <Book
+            key={title}
+            title={title}
+            author={author}
+            highlights={highlights}
+          />
+        )}
       </main>
     </>
   )
@@ -61,6 +69,6 @@ export async function getStaticPaths() {
         params: { title },
       }
     }),
-    fallback: false,
+    fallback: true,
   }
 }
