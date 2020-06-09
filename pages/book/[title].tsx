@@ -9,19 +9,10 @@ import fetchHighlights, {
 } from "../../lib/fetchHighlights"
 import linkify from "../../utils/linkify"
 
-export default function BookPage({
-  book: { title, author, highlights },
-}: {
-  book: TBook
-}) {
+export default function BookPage({ book }: { book: TBook }) {
   const router = useRouter()
 
-  if (
-    router.isFallback ||
-    title === undefined ||
-    author === undefined ||
-    highlights === undefined
-  ) {
+  if (router.isFallback) {
     return (
       <main>
         <header>
@@ -35,6 +26,8 @@ export default function BookPage({
       </main>
     )
   }
+
+  const { title, author, highlights } = book
 
   return (
     <>
