@@ -16,7 +16,12 @@ export default function BookPage({
 }) {
   const router = useRouter()
 
-  if (router.isFallback) {
+  if (
+    router.isFallback ||
+    title === undefined ||
+    author === undefined ||
+    highlights === undefined
+  ) {
     return (
       <main>
         <header>
