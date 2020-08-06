@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "airtable": "^0.8.1",
+    "airtable": "^0.9.0",
     "next": "^9.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
