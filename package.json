@@ -15,7 +15,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@types/airtable": "^0.8.0",
+    "@types/airtable": "^0.8.1",
     "@types/next": "^9.0.0",
     "@types/node": "^14.11.5",
     "@types/react": "^17.0.0",
