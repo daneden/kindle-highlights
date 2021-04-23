@@ -19,7 +19,7 @@ const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME } = process.env
 
 const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE_ID)
 const table = base(AIRTABLE_TABLE_NAME) as Table<Highlight>
-export default async () => {
+export default async function fetchHighlights(): Promise<Highlight[]> {
   const query = table.select({
     maxRecords: 1000,
   })
