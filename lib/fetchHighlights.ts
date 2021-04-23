@@ -24,6 +24,8 @@ export default async function fetchHighlights(): Promise<Highlight[]> {
     maxRecords: 1000,
   })
   const rows = await query.all()
+
+  // Filter to unique values
   const rowsSet = new Set(rows.map((row) => row.fields))
 
   return Array.from(rowsSet)
