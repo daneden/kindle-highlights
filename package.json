@@ -11,13 +11,13 @@
   "dependencies": {
     "airtable": "^0.11.0",
     "next": "^12.2.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/airtable": "^0.10.1",
     "@types/node": "^14.14.41",
-    "@types/react": "^18.0.9",
+    "@types/react": "^18.0.15",
     "@types/react-dom": "^17.0.3",
     "typescript": "^4.2.4"
   }
