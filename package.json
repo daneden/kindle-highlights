@@ -18,7 +18,7 @@
     "@types/airtable": "^0.10.1",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.10",
+    "@types/react-dom": "^18.0.11",
     "typescript": "^4.7.4"
   }
 }
