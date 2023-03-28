@@ -108,10 +108,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.15":
-  version "18.0.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.15.tgz#d355644c26832dc27f3e6cbf0c4f4603fc4ab7fe"
-  integrity sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==
+"@types/react@*", "@types/react@^18.0.30":
+  version "18.0.30"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.30.tgz#83944e679fc7aeab3f042b76d63c4d755b56b7c4"
+  integrity sha512-AnME2cHDH11Pxt/yYX6r0w448BfTwQOLEhQEjCdwB7QskEI7EKtxhGUsExTQe/MsY3D9D5rMtu62WRocw9A8FA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
